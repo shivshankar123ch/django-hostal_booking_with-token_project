@@ -1,0 +1,160 @@
+{% extends 'accounts/base.html' %}
+
+{% block side %}
+<a class="nav-link nav-social" href="{% url 'notices' %}">Notice Board</a>
+<a class="nav-link nav-social" href="{% url 'applistnew' %}">New Approval</a>
+<a class="nav-link nav-social" href="{% url 'applist' %}">Room Approval</a>
+<a class="nav-link nav-social" href="{% url 'feesall' %}">Fees Approval</a>
+<a class="nav-link nav-social" href="{% url 'history' %}">Fees History</a>
+<a class="nav-link nav-social" href="{% url 'studsall' %}">All Students</a>
+<a class="nav-link nav-social" href="{% url 'addroom' %}">Add a room</a>
+<a class="nav-link nav-social" href="{% url 'logout' %}">Logout</a>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<div class="row">
+    <div class="col-md-4"></div>
+
+
+    <div class="col-sm-12 col-md-4 shadow px-3 py-4 m-3 text-dark bg-light" style="border-radius: 25px;">
+        <div class="row">
+            <div class="col-sm-8">
+                <!--            <p class="text-center">My Profile</p>-->
+                <h2>{{name}} {{namel}}</h2>
+            </div>
+
+        </div>
+        <!--        <div class="col-sm-12">-->
+        <!--            {% load static %}-->
+        <!--            <img src="{% static 'images/dp.png' %}" class="rounded-circle mx-auto d-block" height="32px" width="32px">-->
+        <!--        </div>-->
+        <hr class="profilehr">
+        <div class="col-sm-12">
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">person</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Username:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <p class="profiledetail">{{uname}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">email</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Email:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <p class="profiledetail">{{email}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">work</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Course:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <p class="profiledetail">{{course}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">location_city</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Location:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <p class="profiledetail">{{location}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">emoji_people</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Age:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <p class="profiledetail">{{age}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">wc</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Gender:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <p class="profiledetail">{{gender}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">airline_seat_individual_suite</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Room:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <p class="profiledetail">{{room}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--                <div class="col-sm-2"></div>-->
+                <div class="col-sm-1">
+                    <i class="material-icons">local_atm</i>
+                </div>
+                <div class="col-sm-3">
+                    <p class="profiledetail">Fees:</p>
+                </div>
+                <div class="col-sm-7 text-right">
+                    {% if fees == False %}
+                    <p class="profiledetail"><a class="text-danger">Fees Not Paid</a></p>
+                    {% else %}
+                    <p class="profiledetail"><a class="text-success">Fees Paid</a></p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="{% url 'roomdetails' room %}" class="card-link text-dark">Go Back</a>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+
+                <!--                <div class="col-sm-5">-->
+                <!--                    <button type="button" class="btn btn-outline-dark">Pay Fees</button>-->
+
+                <!--                </div>-->
+                <!--                <div class="col-sm-1"></div>-->
+
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+</div>
+{% endblock %}
+
+
